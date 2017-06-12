@@ -50,7 +50,7 @@ public class RBTree {
             return;
 
         Node y = x.left;
-        x.left = y.left;
+        x.left = y.right;
         if(y.right != nil)
         {
             y.right.parent = x;
@@ -103,7 +103,7 @@ public class RBTree {
             else
             {
                 y = z.parent.parent.left;
-                if(y!= null && y.red == true)
+                if(y.red == true)
                 {
                     z.parent.red = false;
                     y.red = false;
@@ -122,9 +122,10 @@ public class RBTree {
                     LeftRotate(z.parent.parent);
                 }
             }
-            root.red = false;
+
         }
 
+        root.red = false;
     }
 
     public void Insert(Node z)
