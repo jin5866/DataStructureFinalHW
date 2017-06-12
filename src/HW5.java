@@ -7,12 +7,12 @@ import  java.io.BufferedReader;
 import  java.io.IOException;
 import java.io.*;
 
-public class HW4 {
+public class HW5 {
     public  static  void main(String args[]) throws IOException
     {
         RBTree rbTree = new RBTree();
 
-        String path = HW4.class.getResource("").getPath();
+        String path = HW5.class.getResource("").getPath();
         String inputPath = path + "input.txt";
         String outputPath = path + "output.txt";
 
