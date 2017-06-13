@@ -160,9 +160,9 @@ public class RBTree {
         }
         z.left =nil;
         z.right = nil;
-        z.red =true;
+        z.red = true;
         //root.red = false;
-        this.InsertFix(z);
+        InsertFix(z);
     }
 
     public  boolean Delete(int val)
@@ -256,6 +256,8 @@ public class RBTree {
                     LeftRotate(x.parent);
                     w = x.parent.right;
                 }
+                if(w == nil)
+                    break;
                 if(w.left.red == false && w.right.red == false)
                 {
                     w.red = true;
@@ -287,6 +289,8 @@ public class RBTree {
                     RightRotate(x.parent);
                     w = x.parent.left;
                 }
+                if(w == nil)
+                    break;
                 if(w.right.red == false && w.left.red == false)
                 {
                     w.red = true;
@@ -294,7 +298,8 @@ public class RBTree {
                 }
                 else
                 {
-                    if (w.left.red == false) {
+                    if (w.left.red == false)
+                    {
                         w.right.red = false;
                         w.red = true;
                         LeftRotate(w);
@@ -408,11 +413,11 @@ public class RBTree {
             InorderTraversal(bw , a.left);
             try
             {
-                bw.write( a.val + ol);
+                bw.write( "" + a.val + ( a.red ? "R" : "B" ) + ol);
             }
             catch (Exception e)
             {
-                System.out.println(a.val);
+                System.out.println(e.getMessage());
             }
             InorderTraversal(bw , a.right);
         }
