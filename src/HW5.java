@@ -111,7 +111,7 @@ public class HW5 {
             int nb = rbTree.GetBlackNode();
             int bh = rbTree.GetBlackHeight();
 
-
+            bw.write("filename = " + inputArr[i] + ".txt" + ol);
             bw.write("total = " + total + ol);
             bw.write("insert = " + insert + ol);
             bw.write("delete = " + delete + ol);

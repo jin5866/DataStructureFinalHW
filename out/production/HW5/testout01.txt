@@ -1,3 +1,4 @@
+filename = test01.txt
 total = 3
 insert = 5
 delete = 2

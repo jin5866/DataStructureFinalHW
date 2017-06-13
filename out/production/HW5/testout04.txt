@@ -1,3 +1,4 @@
+filename = test04.txt
 total = 4036
 insert = 6665
 delete = 2629
