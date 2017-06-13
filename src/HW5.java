@@ -98,7 +98,7 @@ public class HW5 {
                 }
 
                 //rbTree.tree_print(rbTree.root,0);
-                System.out.println();
+                //System.out.println();
 
             }
 

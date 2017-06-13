@@ -8,6 +8,7 @@ public class RBTree {
     RBTree()
     {
         root = nil;
+        nil.red = false;
     }
 
     String ol = System.getProperty("line.separator");
@@ -18,9 +19,6 @@ public class RBTree {
 
     void LeftRotate(Node x)
     {
-        if(x.right == nil || x.right == null)
-            return;
-
         Node y = x.right;
         x.right = y.left;
         if(y.left != nil)
@@ -46,9 +44,6 @@ public class RBTree {
 
     void RightRotate(Node x)
     {
-        if(x.left ==nil || x.left == null)
-            return;
-
         Node y = x.left;
         x.left = y.right;
         if(y.right != nil)
@@ -76,7 +71,7 @@ public class RBTree {
     public void InsertFix(Node z)
     {
         Node y;
-        while (z.parent != nil && z !=null && z != nil && z.parent.red == true)
+        while (z.parent.red == true)
         {
             if(z.parent == z.parent.parent.left)
             {
@@ -161,7 +156,6 @@ public class RBTree {
         z.left =nil;
         z.right = nil;
         z.red = true;
-        //root.red = false;
         InsertFix(z);
     }
 
@@ -244,7 +238,7 @@ public class RBTree {
     void RBDeleteFixUp(Node x)
     {
         Node w;
-        while (x != nil && x != root && x.red ==false)
+        while (x != root && x.red == false)
         {
             if(x == x.parent.left)
             {
@@ -256,8 +250,7 @@ public class RBTree {
                     LeftRotate(x.parent);
                     w = x.parent.right;
                 }
-                if(w == nil)
-                    break;
+
                 if(w.left.red == false && w.right.red == false)
                 {
                     w.red = true;
@@ -388,7 +381,7 @@ public class RBTree {
         {
             if(!x.red)
             {
-                counter ++;
+                counter++;
             }
             x = x.left;
         }

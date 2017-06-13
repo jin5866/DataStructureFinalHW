@@ -16,7 +16,7 @@ public class Node {
         this.left =RBTree.nil;
         this.right = RBTree.nil;
         this.parent = RBTree.nil;
-        red = true;
+        red = false;
     }
 
 
