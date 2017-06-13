@@ -3,7 +3,7 @@ total = 419
 insert = 671
 delete = 252
 miss = 77
-nb = 171
+nb = 231
 bh = 6
 3407R
 5366B

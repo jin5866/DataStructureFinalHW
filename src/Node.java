@@ -12,8 +12,8 @@ public class Node {
 
     Node(int _val)
     {
-        this.val =_val;
-        this.left =RBTree.nil;
+        this.val = _val;
+        this.left = RBTree.nil;
         this.right = RBTree.nil;
         this.parent = RBTree.nil;
         red = false;

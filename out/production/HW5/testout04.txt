@@ -3,7 +3,7 @@ total = 4036
 insert = 6665
 delete = 2629
 miss = 706
-nb = 1593
+nb = 2183
 bh = 8
 146B
 150R

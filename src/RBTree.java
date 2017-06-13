@@ -63,7 +63,7 @@ public class RBTree {
         {
             x.parent.left = y;
         }
-        y.right =x;
+        y.right = x;
         x.parent = y;
 
     }
@@ -282,8 +282,6 @@ public class RBTree {
                     RightRotate(x.parent);
                     w = x.parent.left;
                 }
-                if(w == nil)
-                    break;
                 if(w.right.red == false && w.left.red == false)
                 {
                     w.red = true;
@@ -368,7 +366,7 @@ public class RBTree {
         else
         {
             int tmp;
-            tmp = a.red || a.isLeaf() ? 0 : 1;
+            tmp = a.red ? 0 : 1;
             return GetBlackNode(a.left)+GetBlackNode(a.right) + tmp;
         }
     }

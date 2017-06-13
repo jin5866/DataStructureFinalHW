@@ -3,7 +3,7 @@ total = 34
 insert = 63
 delete = 29
 miss = 8
-nb = 12
+nb = 18
 bh = 3
 30122R
 80181B
