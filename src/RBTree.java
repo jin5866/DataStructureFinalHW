@@ -425,6 +425,45 @@ public class RBTree {
             tree_print(tree.left, level + 1);
     }
 
+    public  void search(int val)
+    {
+        Node node = root;
+        while(node != nil && node.val != val)
+        {
+            if(node.val < val)
+            {
+                node = node.right;
+            }
+            else
+            {
+                node = node.left;
+            }
+        }
+    }
+
+    public List toList()
+    {
+        List list = new List();
+        _toList(list,root);
+
+        return list;
+    }
+
+    private void _toList(List a,Node node)
+    {
+        if(node == nil)
+        {
+            return;
+        }
+
+        _toList(a,node.left);
+        a.add(node.val);
+        _toList(a,node.right);
+    }
+
+
+
+
 
 }
 

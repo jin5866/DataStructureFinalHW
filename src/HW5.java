@@ -10,8 +10,11 @@ import java.io.*;
 public class HW5 {
     public  static  void main(String args[]) throws IOException
     {
-        String[] inputArr = {"test01","test02","test03","test04","test05","test06"};
-        String[] outputArr = {"testout01","testout02","testout03","testout04","testout05","testout06"};
+        String ol = System.getProperty("line.separator");
+
+        String[] inputArr = {"test01"};
+        String[] searchArr = {"search01"};
+        String[] outputArr = {"testout01"};
 
         for(int i = 0; i < inputArr.length; i++)
         {
@@ -23,9 +26,11 @@ public class HW5 {
 
             String path = HW5.class.getResource("").getPath();
             String inputPath = path + inputArr[i] + ".txt";
+            String  searchPath = path + searchArr[i] + ".txt";
             String outputPath = path + outputArr[i] + ".txt";
 
             BufferedReader br = null;
+            BufferedReader bsr = null;
             BufferedWriter bw = null;
 
             File file = new File(inputPath);
@@ -36,6 +41,10 @@ public class HW5 {
             FileWriter fw = new FileWriter(ofile,false);
             bw = new BufferedWriter(fw);
 
+            File sfile = new File(searchPath);
+            FileReader fsr = new FileReader(sfile);
+            bsr = new BufferedReader(fsr);
+
 
             try {
                 br = new BufferedReader(fr);
@@ -45,8 +54,7 @@ public class HW5 {
 
             }
 
-
-            //br = new BufferedReader(new FileReader("input.txt"));
+            // 트리 인서트
             while (true)
             {
                 String g = "  ";
@@ -102,27 +110,68 @@ public class HW5 {
 
             }
 
+            List list = rbTree.toList();
 
+            //찾기
+            while (true)
+            {
+                String line;
+                try {
+                    line = bsr.readLine();
+                    line = line.replaceAll(" ","");
+                }
+                catch (IOException e)
+                {
+                    line = null;
+                }
+                catch (Exception e)
+                {
+                    //System.out.write(e.getMessage());
+                    line = null;
+                }
+                if(line == null)
+                {
+                    break;
+                }
+
+                int val = 0;
+
+                try {
+                    val = Integer.parseInt(line);
+                }
+                catch (Exception e)
+                {
+
+                }
+
+                String[] result = list.searchONSorted(val);
+
+                bw.write(result[0] + " " );
+                bw.write(result[1] + " " );
+                bw.write(result[2] + ol );
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+            // 줄넘김 문자
+
+
+
+
+
+            bw.close();
             br.close();
-
-            String ol = System.getProperty("line.separator");
-
-            int total = rbTree.GetTotal();
-            int nb = rbTree.GetBlackNode();
-            int bh = rbTree.GetBlackHeight();
-
-            bw.write("filename = " + inputArr[i] + ".txt" + ol);
-            bw.write("total = " + total + ol);
-            bw.write("insert = " + insert + ol);
-            bw.write("delete = " + delete + ol);
-            bw.write("miss = " + miss + ol);
-            bw.write("nb = " + nb + ol);
-            bw.write("bh = " + bh + ol);
-
-            rbTree.InorderTraversal(bw);
-
-             bw.close();
-
+            bsr.close();
 
         }
 
